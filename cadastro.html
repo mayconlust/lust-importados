@@ -46,7 +46,7 @@
     const linkProd = urlParams.get('checkout');
     
     if (linkProd) {
-        // Esta linha é a mais importante para pular a tela de "Thanks"
+        // Aqui o nome tem que ser 'next-page' para combinar com o ID lá de cima
         document.getElementById('next-page').value = linkProd;
     }
 </script>
