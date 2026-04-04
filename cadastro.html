@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Cadastro para Envio - Lust Importados</title>
+</head>
+<body class="bg-slate-950 text-white flex items-center justify-center min-h-screen p-6">
+
+    <div class="bg-slate-900 border border-yellow-600/20 p-8 rounded-lg shadow-xl w-full max-w-md">
+        <h2 class="text-2xl font-bold text-yellow-500 mb-6 text-center uppercase tracking-tighter">Dados para Envio e NF-e</h2>
+        
+        <form action="https://formspree.io/f/xvzvwdlk" method="POST" class="space-y-4">
+            
+            <div>
+                <label class="block text-xs text-gray-400 uppercase mb-1">Nome Completo</label>
+                <input type="text" name="nome" required class="w-full bg-slate-800 border border-slate-700 rounded-md p-3 focus:border-yellow-500 outline-none">
+            </div>
+
+            <div>
+                <label class="block text-xs text-gray-400 uppercase mb-1">CPF (Para Nota Fiscal)</label>
+                <input type="text" name="cpf" required class="w-full bg-slate-800 border border-slate-700 rounded-md p-3 focus:border-yellow-500 outline-none">
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs text-gray-400 uppercase mb-1">CEP</label>
+                    <input type="text" name="cep" required class="w-full bg-slate-800 border border-slate-700 rounded-md p-3 focus:border-yellow-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs text-gray-400 uppercase mb-1">Celular</label>
+                    <input type="text" name="whatsapp" required class="w-full bg-slate-800 border border-slate-700 rounded-md p-3 focus:border-yellow-500 outline-none">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs text-gray-400 uppercase mb-1">Endereço Completo</label>
+                <textarea name="endereco" required class="w-full bg-slate-800 border border-slate-700 rounded-md p-3 focus:border-yellow-500 outline-none h-24"></textarea>
+            </div>
+
+            <input type="hidden" name="_next" id="linkPagamento" value="">
+
+<script>
+    // Note a palavra "new" aqui embaixo
+    const urlParams = new URLSearchParams(window.location.search);
+    const linkProd = urlParams.get('checkout');
+    
+    if(linkProd) {
+        document.getElementById('linkPagamento').value = linkProd;
+    }
+</script>
+
+            <button type="submit" class="w-full bg-yellow-600 hover:bg-yellow-500 text-black font-black py-4 rounded-md transition-all uppercase tracking-widest text-sm">
+                Confirmar e Ir para o Pagamento
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>
