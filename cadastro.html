@@ -46,12 +46,8 @@
     const linkProd = urlParams.get('checkout');
     
     if (linkProd) {
-        // Isso preenche o campo que o Formspree usa para pular a tela de "Thanks"
+        // Esta linha é a mais importante para pular a tela de "Thanks"
         document.getElementById('next-page').value = linkProd;
-        
-        // Se você ainda tiver o outro campo com id 'linkPagamento', mantém ele também
-        const campoAntigo = document.getElementById('linkPagamento');
-        if(campoAntigo) campoAntigo.value = linkProd;
     }
 </script>
 
